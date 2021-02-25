@@ -7,6 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TravelBug.Data;
+using Gtt.Uc.EntityFramework;
+
 
 namespace TravelBug
 {
@@ -23,6 +27,10 @@ namespace TravelBug
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            //services.AddDbContext<TravelBugContext>(options =>
+            // options.UseSqlServer(Configuration.GetConnectionString("TravelBugContext")));
+            services.AddGttMem<TravelBugContext>("172be0a7-2433-472a-b878-dfea52e28ec9");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

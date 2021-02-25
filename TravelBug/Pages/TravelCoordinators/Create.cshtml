@@ -1,0 +1,69 @@
+﻿@page
+@model TravelBug.Pages.TravelCoordinators.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Travel Coordinator</h1>
+
+<h4>TravelCoordinator</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.FirstName" class="control-label"></label>
+                <input asp-for="TravelCoordinator.FirstName" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.LastName" class="control-label"></label>
+                <input asp-for="TravelCoordinator.LastName" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.EmployeeId" class="control-label"></label>
+                <input asp-for="TravelCoordinator.EmployeeId" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.DateOfBirth" class="control-label"></label>
+                <input asp-for="TravelCoordinator.DateOfBirth" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.EmailId" class="control-label"></label>
+                <input asp-for="TravelCoordinator.EmailId" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.EmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.PhoneNumber" class="control-label"></label>
+                <input asp-for="TravelCoordinator.PhoneNumber" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.Gender" class="control-label"></label>
+                <input asp-for="TravelCoordinator.Gender" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCoordinator.Experience" class="control-label"></label>
+                <input asp-for="TravelCoordinator.Experience" class="form-control" />
+                <span asp-validation-for="TravelCoordinator.Experience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

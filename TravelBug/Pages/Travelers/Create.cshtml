@@ -1,0 +1,59 @@
+﻿@page
+@model TravelBug.Pages.Travelers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Traveler</h1>
+
+<h4>Traveler</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Traveler.FirstName" class="control-label"></label>
+                <input asp-for="Traveler.FirstName" class="form-control" />
+                <span asp-validation-for="Traveler.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Traveler.LastName" class="control-label"></label>
+                <input asp-for="Traveler.LastName" class="form-control" />
+                <span asp-validation-for="Traveler.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Traveler.Gender" class="control-label"></label>
+                <input asp-for="Traveler.Gender" class="form-control" />
+                <span asp-validation-for="Traveler.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Traveler.DateOfBirth" class="control-label"></label>
+                <input asp-for="Traveler.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Traveler.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Traveler.EmailID" class="control-label"></label>
+                <input asp-for="Traveler.EmailID" class="form-control" />
+                <span asp-validation-for="Traveler.EmailID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Traveler.PhoneNumber" class="control-label"></label>
+                <input asp-for="Traveler.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Traveler.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
