@@ -26,17 +26,33 @@
             </div>
             <div class="form-group">
                 <label asp-for="Package.Type" class="control-label"></label>
-                <input asp-for="Package.Type" class="form-control" />
+                <select asp-for="Package.Type" class="form-control" id="packagetype">
+                <option selected>Choose...</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Diamond">Diamond</option>
+                </select>
                 <span asp-validation-for="Package.Type" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Package.FlightClass" class="control-label"></label>
-                <input asp-for="Package.FlightClass" class="form-control" />
+                <select asp-for="Package.FlightClass" class="form-control" id="flightclass">
+                    <option selected>Choose...</option>
+                    <option value="Economy">Economy</option>
+                    <option value="Business">Business</option>
+                </select>
                 <span asp-validation-for="Package.FlightClass" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Package.HotelRating" class="control-label"></label>
-                <input asp-for="Package.HotelRating" class="form-control" />
+                <select asp-for="Package.HotelRating" class="form-control" id="hotelrating">
+                    <option selected>Choose...</option>
+                    <option value="1 Star">1 Star</option>
+                    <option value="2 Star">2 Star</option>
+                    <option value="3 Star">3 Star</option>
+                    <option value="4 Star">4 Star</option>
+                    <option value="5 Star">5 Star</option>
+                </select>
                 <span asp-validation-for="Package.HotelRating" class="text-danger"></span>
             </div>
             <div class="form-group">
