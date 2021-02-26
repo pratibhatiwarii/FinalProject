@@ -28,7 +28,7 @@ namespace TravelBug.Pages.Travelers
                 return NotFound();
             }
 
-            Traveler = await _context.Traveler.FirstOrDefaultAsync(m => m.Id == id);
+            Traveler = await _context.Traveler.Include(x => x.Bookings).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Traveler == null)
             {

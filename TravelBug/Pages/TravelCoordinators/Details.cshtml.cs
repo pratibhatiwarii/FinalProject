@@ -28,7 +28,7 @@ namespace TravelBug.Pages.TravelCoordinators
                 return NotFound();
             }
 
-            TravelCoordinator = await _context.TravelCoordinator.FirstOrDefaultAsync(m => m.Id == id);
+            TravelCoordinator = await _context.TravelCoordinator.Include(x => x.Bookings).FirstOrDefaultAsync(m => m.Id == id);
 
             if (TravelCoordinator == null)
             {

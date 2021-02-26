@@ -61,6 +61,36 @@
         </dd>
     </dl>
 </div>
+
+<div>
+    <h2>Bookings under this Travel Coordinator</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TravelCoordinator.Bookings[0].Id)</th>
+                <th>@Html.DisplayNameFor(model => model.TravelCoordinator.Bookings[0].StartDate)</th>
+                <th>@Html.DisplayNameFor(model => model.TravelCoordinator.Bookings[0].EndDate)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TravelCoordinator.Bookings)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                <td>
+                    <a asp-page="/Bookings/Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>            }
+        </tbody>
+    </table>
+
+
+
+</div>
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.TravelCoordinator.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>

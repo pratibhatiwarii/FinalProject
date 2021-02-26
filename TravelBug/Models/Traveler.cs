@@ -21,6 +21,14 @@ namespace TravelBug.Models
         [Required(ErrorMessage = "The Last Name is required.")]
         public string LastName { get; set; }
 
+        public string Name
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
+
         [StringLength(20)]
         public string Gender { get; set; }
 

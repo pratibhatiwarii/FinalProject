@@ -53,13 +53,13 @@
                 @Html.DisplayFor(modelItem => item.BookingStatus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Traveler.Id)
+                @Html.DisplayFor(modelItem => item.Traveler.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Package.Id)
+                @Html.DisplayFor(modelItem => item.Package.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TravelerCoordinator.Id)
+                @Html.DisplayFor(modelItem => item.TravelerCoordinator.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

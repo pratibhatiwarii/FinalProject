@@ -39,9 +39,9 @@ namespace TravelBug.Pages.Bookings
             {
                 return NotFound();
             }
-           ViewData["PackageId"] = new SelectList(_context.Set<Package>(), "Id", "Id");
-           ViewData["TravelerId"] = new SelectList(_context.Set<Traveler>(), "Id", "Id");
-           ViewData["TravelerCoordinatorId"] = new SelectList(_context.Set<TravelCoordinator>(), "Id", "Id");
+           ViewData["PackageId"] = new SelectList(_context.Set<Package>(), "Id", "Name");
+           ViewData["TravelerId"] = new SelectList(_context.Set<Traveler>(), "Id", "Name");
+           ViewData["TravelerCoordinatorId"] = new SelectList(_context.Set<TravelCoordinator>(), "Id", "Name");
             return Page();
         }
 

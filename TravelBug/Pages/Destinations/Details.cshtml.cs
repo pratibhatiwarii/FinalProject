@@ -28,7 +28,7 @@ namespace TravelBug.Pages.Destinations
                 return NotFound();
             }
 
-            Destination = await _context.Destination.FirstOrDefaultAsync(m => m.Id == id);
+            Destination = await _context.Destination.Include(x => x.Packages).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Destination == null)
             {

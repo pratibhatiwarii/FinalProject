@@ -37,7 +37,7 @@ namespace TravelBug.Models
         public int Duration { get; set; }
         public Destination Destination { get; set; }
 
-        [DisplayName("Destination Id")]
+        [DisplayName("Destination Name")]
         public int DestinationId { get; set; }
         public List<Booking> Bookings { get; set; }
     }

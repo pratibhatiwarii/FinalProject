@@ -9,19 +9,27 @@ using Microsoft.EntityFrameworkCore;
 using TravelBug.Data;
 using TravelBug.Models;
 
+
+
 namespace TravelBug.Pages.Travelers
 {
     public class EditModel : PageModel
     {
         private readonly TravelBug.Data.TravelBugContext _context;
 
+
+
         public EditModel(TravelBug.Data.TravelBugContext context)
         {
             _context = context;
         }
 
+
+
         [BindProperty]
         public Traveler Traveler { get; set; }
+
+
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,7 +38,11 @@ namespace TravelBug.Pages.Travelers
                 return NotFound();
             }
 
+
+
             Traveler = await _context.Traveler.FirstOrDefaultAsync(m => m.Id == id);
+
+
 
             if (Traveler == null)
             {
@@ -38,6 +50,8 @@ namespace TravelBug.Pages.Travelers
             }
             return Page();
         }
+
+
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -47,8 +61,21 @@ namespace TravelBug.Pages.Travelers
             {
                 return Page();
             }
+            // DATE OF BIRTH VALIDATION
+            var birthYear = Traveler.DateOfBirth.Year;
+            var latestAllowedYear = DateTime.Now.Year - 18;
+            if (birthYear > latestAllowedYear)
+            {
+                ModelState.AddModelError("Traveler.DateOfBirth", "Booking Person must be 18 years or older");
+            }
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             _context.Attach(Traveler).State = EntityState.Modified;
+
+
 
             try
             {
@@ -66,8 +93,12 @@ namespace TravelBug.Pages.Travelers
                 }
             }
 
+
+
             return RedirectToPage("./Index");
         }
+
+
 
         private bool TravelerExists(int id)
         {
