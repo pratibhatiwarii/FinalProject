@@ -1,0 +1,89 @@
+﻿@page
+@model TravelBug.Pages.Packages.SearchModel
+@{
+}
+
+<form action="" method="POST" style="margin-top: 50px;">
+    <div class="form-group">
+        <label class="control-label" for="search">Provide a city to view Packages</label>
+        <input type="text" class="form-control" name="search" id="search" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Search Packages" class="btn btn-default" />
+    </div>
+</form>
+
+@if (Model.IsSearchDone)
+{
+    @if (Model.SearchResults.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Package </th>
+                    <th>Destination</th>
+                    @*<th></th>
+                        <th></th>
+                        <th></th>*@
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var package in Model.SearchResults)
+                {
+                    <tr>
+                        <td>@package.Name</td>
+                        <td>@package.Destination.Name</td>
+                        @*<td></td>
+                            <td></td>*@
+                        <td>
+                            <a asp-page="/Packages/Details" asp-route-id="@package.Id">More Information</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        @*<tr class="danger">
+                <td colspan="4" class="text-center">
+                    Cannot find package for city "@Model.search"
+                </td>
+            </tr>*@
+        <p class="alert-danger"> Cannot find package for city "@Model.search"</p>
+
+    }
+}
+else
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Package</th>
+                <th>Destination</th>
+                @*<th></th>
+                    <th></th>
+                    <th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var package in Model.Packages)
+            {
+                <tr>
+                    <td>@package.Name</td>
+                    <td>@package.Destination.Name</td>
+                    @*<td></td>
+                        <td></td>*@
+                    <td>
+                        <a asp-page="/Packages/Details" asp-route-id="@package.Id">More Information</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+}
