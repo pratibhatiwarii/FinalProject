@@ -1,0 +1,63 @@
+﻿@page
+@model TravelBug.Pages.Packages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Package</h1>
+
+<h4>Package</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Package.Name" class="control-label"></label>
+                <input asp-for="Package.Name" class="form-control" />
+                <span asp-validation-for="Package.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Package.Description" class="control-label"></label>
+                <textarea asp-for="Package.Description" class="form-control"></textarea>
+                <span asp-validation-for="Package.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Package.Type" class="control-label"></label>
+                <input asp-for="Package.Type" class="form-control" />
+                <span asp-validation-for="Package.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Package.FlightClass" class="control-label"></label>
+                <input asp-for="Package.FlightClass" class="form-control" />
+                <span asp-validation-for="Package.FlightClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Package.HotelRating" class="control-label"></label>
+                <input asp-for="Package.HotelRating" class="form-control" />
+                <span asp-validation-for="Package.HotelRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Package.Duration" class="control-label"></label>
+                <input asp-for="Package.Duration" class="form-control" />
+                <span asp-validation-for="Package.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Package.DestinationId" class="control-label"></label>
+                <select asp-for="Package.DestinationId" class ="form-control" asp-items="ViewBag.DestinationId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
