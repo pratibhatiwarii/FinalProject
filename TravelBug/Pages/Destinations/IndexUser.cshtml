@@ -27,20 +27,23 @@
     <tbody>
         @foreach (var item in Model.Destination)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Country)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TouristAttraction)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TouristAttraction)
+            </td>
+            <td>
+                <a asp-page="/Destinations/DetailsUsers" asp-route-id="@item.Id">More Information</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

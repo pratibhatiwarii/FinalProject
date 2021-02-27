@@ -28,11 +28,12 @@ namespace TravelBug.Pages
         }
 
         public int TotalPackages {get;set;}
+        public int TotalDestinations { get; set; }
 
         public void OnGet()
         {
-            TotalPackages = tb_context.Package
-                                        .Count();
+            TotalPackages = tb_context.Package.Count();
+            TotalDestinations = tb_context.Destination.Count();
 
         }
     }

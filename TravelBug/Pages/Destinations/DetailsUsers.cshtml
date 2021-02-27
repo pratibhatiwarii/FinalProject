@@ -39,7 +39,6 @@
 </div>
 
 <div>
-
     @if (Model.Destination.Packages.Count == 0)
     {
         <h6>There are no available packages for this destination.</h6>
@@ -75,6 +74,5 @@
 </div>
 
     <div>
-        <a asp-page="./Edit" asp-route-id="@Model.Destination.Id">Edit</a> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./IndexUser">Back to List</a>
     </div>

@@ -26,7 +26,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Traveler.Gender" class="control-label"></label>
-                <input asp-for="Traveler.Gender" class="form-control" />
+                <select asp-for="Traveler.Gender" class="form-control" id="flightclass">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                </select>
                 <span asp-validation-for="Traveler.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">

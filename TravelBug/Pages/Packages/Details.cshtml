@@ -62,19 +62,22 @@
                 <th>@Html.DisplayNameFor(model => model.Package.Bookings[0].Id)</th>
                 <th>@Html.DisplayNameFor(model => model.Package.Bookings[0].StartDate)</th>
                 <th>@Html.DisplayNameFor(model => model.Package.Bookings[0].EndDate)</th>
+                <th>@Html.DisplayNameFor(model => model.Package.Bookings[0].BookingStatus)</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Package.Bookings)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                    <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
-                    <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
-                    <td>
-                        <a asp-page="/Bookings/Details" asp-route-id="@item.Id">Details</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.BookingStatus)</td>
+                <td>
+                    <a asp-page="/Bookings/Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
