@@ -34,6 +34,7 @@ namespace TravelBug.Models
         public string HotelRating { get; set; }
 
         [Range(1, 100)]
+        [DisplayName("Minimum Duration")]
         public int Duration { get; set; }
         public Destination Destination { get; set; }
 

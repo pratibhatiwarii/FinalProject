@@ -21,6 +21,7 @@ namespace TravelBug.Models
         [Required(ErrorMessage = "The Last Name is required.")]
         public string LastName { get; set; }
 
+        // Read-Only Property Name
         public string Name
         {
             get
@@ -36,6 +37,17 @@ namespace TravelBug.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "The Date of Birth is required.")]
         public DateTime DateOfBirth { get; set; }
+
+        // Read-Only Property Age
+        public int Age
+        {
+            get
+            {
+                int x = DateTime.Today.Year - DateOfBirth.Year;
+
+                return x;
+            }
+        }
 
         [DisplayName("Email ID")]
         [StringLength(100)]

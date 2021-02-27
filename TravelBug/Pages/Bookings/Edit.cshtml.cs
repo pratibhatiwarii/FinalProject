@@ -54,6 +54,33 @@ namespace TravelBug.Pages.Bookings
                 return Page();
             }
 
+            DateTime StartDate = Booking.StartDate;
+            DateTime EndDate = Booking.EndDate;
+            DateTime SystemDate = DateTime.Now;
+            var x = (EndDate - StartDate).Days;
+            if (x < 0)
+            {
+                ModelState.AddModelError("Booking.EndDate", "End Date should be greater than the Start Date");
+            }
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            if (x > 15)
+            {
+                ModelState.AddModelError("Booking.EndDate", "Bookings cannot be made for more than 15 days");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             _context.Attach(Booking).State = EntityState.Modified;
 
             try

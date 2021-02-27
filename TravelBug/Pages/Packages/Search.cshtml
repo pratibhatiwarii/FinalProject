@@ -9,7 +9,7 @@
         <input type="text" class="form-control" name="search" id="search" />
     </div>
     <div class="form-group">
-        <input type="submit" value="Search Packages" class="btn btn-default" />
+        <input type="submit" value="Search Packages" class="btn btn-sm btn-primary" />
     </div>
 </form>
 
@@ -22,9 +22,9 @@
                 <tr>
                     <th>Package </th>
                     <th>Destination</th>
-                    @*<th></th>
+                    <th>Category</th>
                         <th></th>
-                        <th></th>*@
+                        <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -34,10 +34,23 @@
                     <tr>
                         <td>@package.Name</td>
                         <td>@package.Destination.Name</td>
-                        @*<td></td>
-                            <td></td>*@
                         <td>
-                            <a asp-page="/Packages/Details" asp-route-id="@package.Id">More Information</a>
+                            @if (package.Type == "Gold")
+                            {
+                                <span class="badge badge-warning">Gold</span>
+                            }
+                            else if (package.Type == "Silver")
+                            {
+                                <span class="badge badge-secondary">Silver</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-light">Diamond</span>
+                            }
+                        </td>
+                            <td></td>
+                        <td>
+                            <a asp-page="/Packages/DetailsUsers" asp-route-id="@package.Id">More Information</a>
                         </td>
                     </tr>
                 }
@@ -64,9 +77,9 @@ else
             <tr>
                 <th>Package</th>
                 <th>Destination</th>
-                @*<th></th>
+                <th>Type</th>
                     <th></th>
-                    <th></th>*@
+                    <th></th>
             </tr>
         </thead>
         <tbody>
@@ -75,10 +88,24 @@ else
                 <tr>
                     <td>@package.Name</td>
                     <td>@package.Destination.Name</td>
-                    @*<td></td>
-                        <td></td>*@
                     <td>
-                        <a asp-page="/Packages/Details" asp-route-id="@package.Id">More Information</a>
+                        @if (package.Type == "Gold")
+                        {
+                            <span class="badge badge-warning">Gold</span>
+                        }
+                        else if (package.Type == "Silver")
+                        {
+                            <span class="badge badge-secondary">Silver</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-light">Diamond</span>
+                        }
+
+                    </td>
+                        <td></td>
+                    <td>
+                        <a asp-page="/Packages/DetailsUsers" asp-route-id="@package.Id">More Information</a>
                     </td>
                 </tr>
             }

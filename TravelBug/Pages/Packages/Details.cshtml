@@ -45,13 +45,7 @@
             @Html.DisplayNameFor(model => model.Package.Duration)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Package.Duration)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Package.Destination)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Package.Destination.Name)
+            @Html.DisplayFor(model => model.Package.Duration) days
         </dd>
     </dl>
 </div>
@@ -59,6 +53,9 @@
 
 <div>
     <h2>Bookings under this Package</h2>
+    @if(Model.Package.Bookings.Count == 0)
+    { <h6>No Bookings under this package</h6>}
+    else { 
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -81,6 +78,7 @@
             }
         </tbody>
     </table>
+    }
 </div>
 
 <div>

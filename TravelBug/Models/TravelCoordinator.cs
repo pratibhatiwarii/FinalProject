@@ -21,6 +21,7 @@ namespace TravelBug.Models
         [Required(ErrorMessage = "The Last Name is required.")]
         public string LastName { get; set; }
 
+        // Read-Only Property Name
         public string Name
         {
             get
