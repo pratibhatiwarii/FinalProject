@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravelBug.Models;
+using TravelBug.Data;
 
 namespace TravelBug.Pages
 {
@@ -12,13 +14,25 @@ namespace TravelBug.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        private TravelBugContext tb_context;
+
+        //public IndexModel(TravelBugContext context)
+        //{
+        //    tb_context = context;
+        //}
+
+        public IndexModel(ILogger<IndexModel> logger, TravelBugContext context)
         {
             _logger = logger;
+            tb_context = context;
         }
+
+        public int TotalPackages {get;set;}
 
         public void OnGet()
         {
+            TotalPackages = tb_context.Package
+                                        .Count();
 
         }
     }
