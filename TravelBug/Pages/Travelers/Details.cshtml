@@ -47,10 +47,10 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Traveler.PhoneNumber)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Traveler.Age)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(modelItem => Model.Traveler.Age)
         </dd>
     </dl>
@@ -64,6 +64,7 @@
                 <th>@Html.DisplayNameFor(model => model.Traveler.Bookings[0].Id)</th>
                 <th>@Html.DisplayNameFor(model => model.Traveler.Bookings[0].StartDate)</th>
                 <th>@Html.DisplayNameFor(model => model.Traveler.Bookings[0].EndDate)</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
